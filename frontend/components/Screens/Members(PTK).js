@@ -4,7 +4,7 @@ import { View, Container } from 'native-base';
 import Hamburger from '../Hamburger';
 import * as Constants from '../../Constants'
 import AccioText from '../AccioText'
-import Person from '../Person'
+import Person from '../Person(PTK)'
 import { connect } from 'react-redux';
 
 
@@ -17,18 +17,20 @@ function mapStateToProps(state) {
 
 class GroupMembersScreen extends Component {
 
+    /**************************************** PTK ****************************************/
+
     renderGrid = ({ item }) => {
-        // console.log(item)
-        // console.log(this.props.route.params.myId)
         return (
             <View style={styles.eachMember}>
                 <Person item={item} {...this.props} />
             </View>
         )
     }
+    
+    /**************************************** PTK ****************************************/
+
 
     render() {
-        // console.log("Me", this.props.me);
         var members = this.props.route.params.groupMembers;
         return (
             <Container>

@@ -120,7 +120,6 @@ class Live extends Component {
         const resJson = await res.json();
 
         // HACK: the 'select a group' picker.item in render breaks the app on ios
-        // this is a fucked up workaround
         // https://github.com/GeekyAnts/NativeBase/issues/983
         const groupsCopy = resJson.data.groups.slice();
         groupsCopy.unshift({_id: "none", name: "Select A Group"});
@@ -136,9 +135,6 @@ class Live extends Component {
             fetch(url)
                 .then((response) => response.json())
                 .then((responseJson) => {
-
-                    // console.log("mygroups(): ", responseJson.data);
-
                     //show picker form once "Go Live" button is pressed
                     this.setState({
                         selected: null,
@@ -150,10 +146,8 @@ class Live extends Component {
 
 
                 }).catch((err) => {
-                    // console.error("error", err); 
                 });
         } else {
-            // console.log("Must be signed in to Go Live")
         }
     }
     endLive() {
@@ -162,16 +156,6 @@ class Live extends Component {
             .then((response) => response.json())
             .then((responseJson) => {
                 if (responseJson.status == 'success') {
-                    // console.log("endlive(): ", responseJson);
-
-                    //once live has ended, reset values
-                    // this.setState({
-                    //     selected: null,
-                    //     showPicker: false,
-                    //     showLiveButton: true,
-                    //     showEndButton: false,
-                    //     mygroups: this.state.mygroups
-                    // });
                     this.setState({
                         showPicker: true,
                         showLiveButton: true,
@@ -180,7 +164,7 @@ class Live extends Component {
                 }
 
             }).catch((err) => {
-                // console.error("error", err); 
+                console.error("error", err); 
             });
 
     }
@@ -221,21 +205,14 @@ class Live extends Component {
                                 selectedValue={this.state.selected}
                                 placeholderStyle={{color: 'white'}}
                                 style={{justifyContent: 'center'}}
-                                // onValueChange={this.onValueChange.bind(this)}
                                 onValueChange={this.pickerChange.bind(this)}
                             >
-                                {/* <Picker.Item label="Select A Group" value="" key="none" /> */}
                                 {this.state.mygroups != null ? this.state.mygroups.map((group) => (
                                     <Picker.Item label={group.name} value={group._id} key={group._id} />
                                 )) : null}
                             </Picker>
                         </Form>) : null}
                 </TouchableOpacity>
-                {/* {this.state.showLiveButton ?
-                    (<Button full info
-                        onPress={this.goLive.bind(this)}>
-                        <Text>Go Live</Text>
-                    </Button>) : null} */}
 
                 {this.state.showEndButton ?
                     (<Button full danger

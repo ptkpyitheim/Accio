@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import MyGroupsScreen from './Screens/MyGroups';
-import GroupMembersScreen from './Screens/Members'
+import GroupMembersScreen from './Screens/Members(PTK)'
 import Events from './Events/Events'
 import EventDetail from './Events/EventDetail'
 import CreateGroup from './Screens/CreateGroup';
@@ -43,7 +43,6 @@ function mapStateToProps(state) {
   return {
     token: state.reducer.token,
     me: state.reducer.me,
-    // avatar: state.reducer.avatar
   }
 }
 
@@ -176,6 +175,9 @@ function CreateGroups() {
   );
 }
 
+
+/**************************************** PTK ****************************************/
+
 function backBtn() {
   return (
     <Image
@@ -303,7 +305,6 @@ class Navigator extends Component {
     super(props)
     this.state = {
       isLoggedIn: false,
-      // avatar: Constants.baseURL + '/profilePictures/' + this.props.me._id + ".jpg",
     }
   }
 
@@ -324,7 +325,6 @@ class Navigator extends Component {
         <DrawerItem
           label={() => <Logout logoutUser={this.onChangeLoginStatus} />}
           style={styles.logoutContainer}
-        // options={{drawerIcon: () => (<Image source={require("../assets/images/logout.png")} resizeMode="contain" style={{width: 35, height: 35, }} />) }}
         />
       </DrawerContentScrollView>
     );
@@ -362,8 +362,7 @@ class Navigator extends Component {
   }
 }
 
-
-
+/**************************************** PTK ****************************************/
 
 
 const styles = StyleSheet.create({

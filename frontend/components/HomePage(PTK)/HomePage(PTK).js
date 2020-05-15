@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Constants from '../../Constants'
 
+/**************************************** PTK ****************************************/
 
 class HomePage extends Component {
 
@@ -93,3 +94,5 @@ const styles = StyleSheet.create({
 })
 
 export default HomePage;
+
+/**************************************** PTK ****************************************/

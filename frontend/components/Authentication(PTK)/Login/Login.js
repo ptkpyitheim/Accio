@@ -136,10 +136,7 @@ const styles = StyleSheet.create({
     marginTop: Constants.statusBarHeight + 100,
   },
   signupTextCont: {
-    // flexGrow: 1,
-    // alignItems: 'flex-end',
     paddingVertical: 60,
-    // flexDirection: 'row',
   },
   errText: {
     paddingHorizontal: 3,

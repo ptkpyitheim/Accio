@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, Image, ActivityIndicator, TouchableOpacity, FlatList, Alert, ScrollView, TextInput } from 'react-native';
 import { Container, View, Toast } from 'native-base';
-import Hamburger from '../Hamburger';
+import Hamburger from '../Hamburger(PTK)';
 import AccioText from '../AccioText'
 import * as Constants from '../../Constants'
 
 import { connect } from 'react-redux';
-import Person from '../Person';
+import Person from '../Person(PTK)';
 
 function mapStateToProps(state) {
     return {

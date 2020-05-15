@@ -11,6 +11,9 @@ import * as ImagePicker from "expo-image-picker";
 import AccioText from './AccioText'
 import * as Constants from '../Constants'
 
+
+/**************************************** PTK ****************************************/
+
 function mapStateToProps(state) {
     return {
         token: state.reducer.token,
@@ -431,3 +434,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#E1E2E6",
     },
 })
+
+
+/**************************************** PTK ****************************************/

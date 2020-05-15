@@ -6,10 +6,12 @@ import { Dimensions, StyleSheet } from 'react-native';
 import { Container, Content, View } from 'native-base';
 import * as Constants from '../../Constants'
 
-import Hamburger from '../Hamburger';
+import Hamburger from '../Hamburger(PTK)';
 import Live from './Live';
 import { connect } from 'react-redux';
-import store from '../../store'
+import store from '../../store(PTK)'
+
+/**************************************** PTK ****************************************/
 
 function mapStateToProps(state) {
     return {
@@ -30,8 +32,6 @@ class Map extends Component {
                 longitude: 360,
                 latitudeDelta: 360,
                 longitudeDelta: 360,
-
-
             },
             memberLocation: []
         }
@@ -64,6 +64,57 @@ class Map extends Component {
         this._isMounted = false;
     }
 
+    async getCurrentPosition() {
+        let { status } = await Permissions.askAsync(Permissions.LOCATION);
+        if (status === 'granted') {
+            return Location.getCurrentPositionAsync({});
+        }
+        else {
+            return {};
+        }
+    }
+
+    _getLocationAsync = async () => {
+        let { status } = await Permissions.askAsync(Permissions.LOCATION);
+        if (status === 'granted') {
+            let region = await Location.getCurrentPositionAsync({});
+            this.setMapRegion(region.coords);
+
+            return this.updateLocationOnServer(region).then((response) => response.json())
+                .then((responseJson) => {
+                    if (responseJson.status == 'fail') {
+                        // console.log("User not logged in. Location not saved");
+                    }
+                    else {
+                    }
+                }).catch((err) => {
+                    // console.error("error", err);
+                });
+        }
+        else {
+            // console.log("not granted");
+        }
+    }
+
+
+    getCurrentLocation = () => {
+        return this._getLocationAsync();
+    }
+
+    setMapRegion = (reg) => {
+        if (this._isMounted) {
+            this.setState({
+                region: {
+                    latitude: reg.latitude,
+                    longitude: reg.longitude,
+                    latitudeDelta: 0.01,
+                    longitudeDelta: 0.01,
+                }
+            });
+        }
+    }
+
+    /**************************************** PTK ****************************************/
 
     getAllMemberLocation() {
         if (this.props && this.props.token) {
@@ -91,31 +142,6 @@ class Map extends Component {
                     this.setState({ memberLocation: Object.values(liveMember) })
                 });
         }
-
-
-
-
-    }
-    getCurrentLocation = () => {
-        return this._getLocationAsync();
-    }
-
-    setMapRegion = (reg) => {
-        if (this._isMounted) {
-            this.setState({
-                region: {
-                    latitude: reg.latitude,
-                    longitude: reg.longitude,
-                    latitudeDelta: 0.01,
-                    longitudeDelta: 0.01,
-                }
-            });
-        }
-    }
-    state = { modalVisible: false, };
-
-    setModalVisible(visible) {
-        this.setState({ modalVisible: visible });
     }
 
     updateLocationOnServer(location) {
@@ -131,41 +157,6 @@ class Map extends Component {
                 latitude: location.latitude
             })
         });
-    }
-
-    async getCurrentPosition() {
-        let { status } = await Permissions.askAsync(Permissions.LOCATION);
-        if (status === 'granted') {
-            return Location.getCurrentPositionAsync({});
-        }
-        else {
-            return {};
-        }
-    }
-
-    _getLocationAsync = async () => {
-        let { status } = await Permissions.askAsync(Permissions.LOCATION);
-        if (status === 'granted') {
-            let region = await Location.getCurrentPositionAsync({});
-            this.setMapRegion(region.coords);
-            // console.log(JSON.stringify(region));
-            // console.log('send the location');
-
-            return this.updateLocationOnServer(region).then((response) => response.json())
-                .then((responseJson) => {
-                    if (responseJson.status == 'fail') {
-                        // console.log("User not logged in. Location not saved");
-                    }
-                    else {
-                        // console.log("location updated");
-                    }
-                }).catch((err) => {
-                    // console.error("error", err);
-                });
-        }
-        else {
-            // console.log("not granted");
-        }
     }
 
     render() {
@@ -199,24 +190,10 @@ class Map extends Component {
                         showsMyLocationButton={true}
                         zoomEnabled={true}
                         showsCompass={true}
-                        // followsUserLocation={true}
                         region={this.state.region} // I think this code is causing error where we can't zoom out
-                        // initialRegion={this.state.region} // This line lets you zoom out but doesn't center at your current location until you click recenter
-                        // onRegionChangeComplete={region => this.setState({ region: region })}
                         loadingEnabled
                     >
                         {allMarker}
-                        {/* <Marker
-                                title={"CSE437 Fun Group"}
-                                description={"Join us in making an app"}
-                                coordinate={{
-                                    latitude: 38.649103, longitude:-90.306138
-                                }}
-                                pinColor={ 'green' }
-                                onCalloutPress={() => alert('Clicked')}
-                                onPress={()=>console.log('do something')}
-                            /> */}
-
 
                     </MapView>
                     <Hamburger

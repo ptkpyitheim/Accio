@@ -2,6 +2,7 @@ import React from 'react';
 import { Right, Header, Body, Title, Icon, Button, Left } from 'native-base';
 import { StyleSheet, View, Dimensions } from 'react-native';
 
+/**************************************** PTK ****************************************/
 
 
 export default class Hamburger extends React.Component {
@@ -68,3 +69,5 @@ const styles = StyleSheet.create({
         marginLeft: 10
     }
 })
+
+/**************************************** PTK ****************************************/

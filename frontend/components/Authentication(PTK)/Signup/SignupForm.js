@@ -59,20 +59,6 @@ export default class SignupForm extends Component {
     })
   }
 
-  // handlePickAvatar = async () => {
-  //   UserPermissions.getCameraPermission();
-
-  //   let result = await ImagePicker.launchImageLibraryAsync({
-  //     mediaTypes: ImagePicker.MediaTypeOptions.Images,
-  //     allowsEditing: true,
-  //     aspect: [4, 3]
-  //   });
-
-  //   if (!result.cancelled) {
-  //     this.setState({ avatar: result.uri });
-  //   }
-  // };
-
   validateForm(first, last, uname, email, pass, confirmPass) {
     let isValid = false;
     let errMsg = "";
@@ -124,15 +110,6 @@ export default class SignupForm extends Component {
 
 
         <ScrollView style={styles.scrollView}>
-          {/* <TouchableOpacity style={styles.avatarPlaceholder} onPress={this.handlePickAvatar}>
-            <Image source={{ uri: this.state.avatar }} style={styles.avatar} />
-            <Ionicons
-              name="ios-add"
-              size={40}
-              color="#FFF"
-              style={{ marginTop: 6, marginLeft: 2 }}
-            ></Ionicons>
-          </TouchableOpacity> */}
 
           <AccioText fontFamily='medium' style={styles.label}>First Name</AccioText>
 

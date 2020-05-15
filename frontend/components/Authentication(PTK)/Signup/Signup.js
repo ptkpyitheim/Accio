@@ -113,67 +113,10 @@ class Signup extends Component {
         else if (responseJson.status == 'success') {
           Toast.show({ text: "Account created! Please verify your email before logging in.", buttonText: 'OK', duration: 3000 });
           this.props.navigation.navigate('Login');
-          // this.getToken(usr, pswd) //Send that token up to REDUX store
-          // this.setState({ isSigningUp: false })
         }
       }).catch((err) => {
         console.error(err);
       });
-
-    // //upload Profile picture
-    // if (avatar == "") {
-    //   //no profile picture to upload
-    //   let defaultAvatar = ImageView.setImageURI(Uri.fromFile(new File('../assets/images/default-profile-pic.png')));;
-    //   let formData = new FormData();
-    //   formData.append("picture", defaultAvatar);
-    //   formData.append("token", this.props.token);
-    //   fetch(AccioConsts.baseURL + '/authed/uploadprofilepicture', {
-    //     method: "POST", body: formData
-    //   }).then((response) => response.json())
-    //   .then((responseJson) => {
-    //     console.log("Add profile picture", responseJson);
-    //     if (responseJson.status == 'error') {
-    //       console.log("error");
-    //     }
-    //     else if (responseJson.status == 'fail') {
-    //       this.setState({ signupErrMsg: responseJson.data.message, isSigningUp: false })
-    //     }        
-    //     else if (responseJson.status == 'success') {
-    //       Toast.show({ text: "Account created! Please verify your email before logging in.", buttonText: 'OK', duration: 3000 });
-    //       this.props.navigation.navigate('Login');
-    //       // this.getToken(usr, pswd) //Send that token up to REDUX store
-    //       // this.setState({ isSigningUp: false })
-    //     }
-    //   }).catch((err) => {
-    //     console.error(err);
-    //   });
-    // }
-    // else {
-    //   let formData = new FormData();
-    //   formData.append("picture", avatar);
-    //   formData.append("token", this.props.token);
-    //   fetch(AccioConsts.baseURL + '/authed/uploadprofilepicture', {
-    //     method: "POST", body: formData
-    //   }).then((response) => response.json())
-    //   .then((responseJson) => {
-    //     console.log("Add profile picture", responseJson);
-    //     if (responseJson.status == 'error') {
-    //       console.log("error");
-    //     }
-    //     else if (responseJson.status == 'fail') {
-    //       this.setState({ signupErrMsg: responseJson.data.message, isSigningUp: false })
-    //     }        
-    //     else if (responseJson.status == 'success') {
-    //       Toast.show({ text: "Account created! Please verify your email before logging in.", buttonText: 'OK', duration: 3000 });
-    //       this.props.navigation.navigate('Login');
-    //       // this.getToken(usr, pswd) //Send that token up to REDUX store
-    //       // this.setState({ isSigningUp: false })
-    //     }
-    //   }).catch((err) => {
-    //     console.error(err);
-    //   });
-    // }
-
   }
 
   render() {
@@ -211,8 +154,8 @@ const windowHeight = Dimensions.get('window').height;
 
 
 const styles = StyleSheet.create({
-            container: {
-            flex: 1,
+    container: {
+    flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
     paddingLeft: 40,
@@ -220,12 +163,9 @@ const styles = StyleSheet.create({
     marginTop: Constants.statusBarHeight + 70,
   },
   signupTextCont: {
-            // flexGrow: 1,
-            // alignItems: 'flex-end',
-            paddingVertical: 30,
-    // flexDirection: 'row',
+    paddingVertical: 30,
   },
   errText: {
-            paddingHorizontal: 3,
+    paddingHorizontal: 3,
   },
 });

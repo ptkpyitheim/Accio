@@ -89,20 +89,6 @@ class Login extends Component {
               </AccioText>
             </TouchableOpacity>
           }
-          
-
-          {/* <Form type="Login" {...this.state} submit={this.LoginAPICall} loginErrorComp={loginErrComp} /> */}
-
-          {/* <View style={styles.signupTextCont}>
-            <AccioText size={13} color='grey' fontFamily='medium'>{" "}Don't have an account? </AccioText>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Signup')}>
-              <AccioText style={{ paddingVertical: 10 }} size={13} weight='600' color='accio' fontFamily='bold'> Create an Account </AccioText>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={() => alert()}>
-              <AccioText style={{ paddingVertical: 10 }} size={13} weight='600' color='accio' fontFamily='bold'> Forgot Password </AccioText>
-            </TouchableOpacity>
-          </View> */}
         </View>
       </Container>
     )
@@ -122,10 +108,7 @@ const styles = StyleSheet.create({
     marginTop: Constants.statusBarHeight + 100,
   },
   signupTextCont: {
-    // flexGrow: 1,
-    // alignItems: 'flex-end',
     paddingVertical: 60,
-    // flexDirection: 'row',
   },
   errText: {
     paddingHorizontal: 3,

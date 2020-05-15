@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { Text } from 'react-native';
 import * as Constants from '../Constants'
 
+
+/**************************************** PTK ****************************************/
+
+
 /** 
  * ** CUSTOM TEXT COMPONENT FOR ACCIO **
  * Acceptable props
@@ -52,3 +56,6 @@ export default class AccioText extends Component {
         );
     }
 }
+
+
+/**************************************** PTK ****************************************/

@@ -12,10 +12,16 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         token: action.token
       })
+      
+    /**************************************** PTK ****************************************/
+
     case 'UPDATE_ME':
       return Object.assign({}, state, {
         me: action.me,
       })
+
+    /**************************************** PTK ****************************************/
+
       
   }
   return state
