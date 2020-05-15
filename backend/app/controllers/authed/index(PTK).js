@@ -36,10 +36,16 @@ router.use('/createevent', require('./createevent'));
 router.use('/createpost', require('./createpost'));
 router.use('/me', require('./me'));
 router.use('/groupbyid', require('./groupbyid'));
+
+/**************************************** PTK ****************************************/
+
 router.use('/addfriend', require('./addFriend'));
-router.use('/unfriend', require('./unfriend'));
-router.use('/cancelrequest', require('./cancelrequest'));
-router.use('/respondtofriendrequest', require('./respondtofriendrequest'));
+router.use('/unfriend', require('./unfriend(PTK)'));
+router.use('/cancelrequest', require('./cancelrequest(PTK)'));
+router.use('/respondtofriendrequest', require('./respondtofriendrequest(PTK)'));
+
+/**************************************** PTK ****************************************/
+
 router.use('/changepassword', require('./changepassword'));
 router.use('/addComment', require('./addComment'));
 router.use('/getCommentsByPost', require('./getCommentsByPost'));

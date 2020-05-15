@@ -14,7 +14,7 @@ import HomePage from './components/HomePage/HomePage';
 
 import { YellowBox } from 'react-native'
 
-
+/**************************************** PTK ****************************************/
 const Stack = createStackNavigator();
 
 export default class App extends Component {
@@ -53,3 +53,5 @@ export default class App extends Component {
     );
   }
 }
+/**************************************** PTK ****************************************/
+
