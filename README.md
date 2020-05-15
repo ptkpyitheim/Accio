@@ -7,7 +7,7 @@ Location-based interest groups app built with (MERN stack) React Native, Redux, 
 ### Note to Major League Hacking (MLH) mentor viewing this
 * For easy viewing of codes and files I contributed, I put my initials beside the name of the folders and files. <em>Example: App(PTK).js</em>
 * In each of those files you will see code blocks enclosed with comments with my initials. This indicates the pieces of codes I wrote.
-* This branch <em>(my-contributions-comments)</em> may not run locally due to some file names being replaced by appending my initials. To run locally, please either use <em>master</em> or <em>end-of-semester-version</em> branches. Instructions are below.
+* **This branch <em>(my-contributions-comments)</em> may not run locally due to some file names being replaced by appending my initials. To run it locally, please either use <em>master</em> or <em>end-of-semester-version</em> branches. Instructions to run are below.**
 * The implementations for this branch of the app are identical to <em>end-of-semester-version</em> branch.
 
 ---
