@@ -2,11 +2,6 @@
 <img src='./frontend/assets/Accio_Final_Presentation.png' />
 Location-based interest groups app built with (MERN stack) React Native, Redux, MongoDB, Node.js, Express.js
 
----
-
-### If you are a Major League Hacking (MLH) Fellowship mentor please refer to <em>my-contributions-comments</em> branch
----
-
 ## Summary of Accio
 
 ### Pitch
